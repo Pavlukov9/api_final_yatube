@@ -1,38 +1,54 @@
 # API_YATUBE
 Данный проект создан в рамках учебного курса Яндекс.Правктикум.
 Он представляет из себя REST API для социальной сети блогеров ***Yatube***.
-Методы, которые поддерживает проект:    
-:white_check_mark: GET    
-:white_check_mark: POST    
-:white_check_mark: PUT    
-:white_check_mark: PATCH    
-:white_check_mark: DELETE    
+
+Функционал проекта:    
+:white_check_mark: Подписка и отписка от авторизованного пользователя;   
+:white_check_mark: Авторизованный пользователь просматривает посты, создавёт новые, удаляет и изменяет их;    
+:white_check_mark: Просмотр сообществ;    
+:white_check_mark: Комментирование, просмотр, удаление и обновление комментариев;    
+:white_check_mark: Фльтрация по полям.    
 
 Представление данных в формате ***JSON***
 ____________________________
 
 # Как запустить проект:
+
 1. Клонируйте репозиторий с проектом:
 
-```git clone https://github.com/Pavlukov9/api_yatube.git```
+```python 
+git clone https://github.com/Pavlukov9/api_final_yatube.git
+```
 
 2. В созданной директории установите и активируйте виртуальное окружение, установите необходимые зависимости:
 
-```python -m venv venv```
-```source venv/Scripts/activate```
-```pip install -r requirements.txt```
+```python
+python -m venv venv
+```
+```python
+source venv/Scripts/activate
+```
+```python
+pip install -r requirements.txt
+```
 
 3. Выполните миграции:
 
-```python manage.py migrate```
+```python
+python manage.py migrate
+```
 
 4. Создайте суперпользователя:
 
-```python manage.py createsuperuser```
+```python
+python manage.py createsuperuser
+```
 
 5. Запустите проект:
 
-```python manage.py runserver```
+```python
+python manage.py runserver
+```
 ____________________________
 
 # Примеры запросов
@@ -88,7 +104,14 @@ ____________________________
    ```
 ____________________________
 
-Проект запустился по адресу: 
+Документация проекта по адресу:
+```python
+http://127.0.0.1:8000/redoc/
+```
+
+Проект запустился по адресу:
+```python
 http://127.0.0.1:8000/
+```
 ____________________________
 

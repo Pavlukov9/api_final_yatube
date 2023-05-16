@@ -5,8 +5,8 @@ from posts.models import Comment, Follow, Group, Post, User
 
 class PostSerializer(serializers.ModelSerializer):
     author = serializers.SlugRelatedField(
-        slug_field='username',
-        read_only=True)
+        read_only=True, slug_field='username'
+    )
 
     class Meta:
         fields = '__all__'
@@ -33,13 +33,11 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class FollowSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(
-        queryset=User.objects.all(),
-        slug_field='username',
-        default=serializers.CurrentUserDefault(),
+        slug_field='username', queryset=User.objects.all(),
+        default=serializers.CurrentUserDefault()
     )
     following = serializers.SlugRelatedField(
-        slug_field='username',
-        queryset=User.objects.all(),
+        slug_field='username', queryset=User.objects.all()
     )
 
     class Meta:
@@ -53,9 +51,9 @@ class FollowSerializer(serializers.ModelSerializer):
             )
         ]
 
-    def validate(self, data):
-        if data['user'] == data['following']:
+    def validate_following(self, value):
+        if self.context['request'].user == value:
             raise serializers.ValidationError(
                 'Нельзя подписаться самому на себя!'
             )
-        return data
+        return value
